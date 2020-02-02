@@ -1,0 +1,408 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        link(rel="stylesheet" href="normalize.css")
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+        link(href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="style.css")
+        title Dabba
+    body
+        .container-fluid
+            .row
+                header.col-12
+                    .row
+                        .col-6.offset-1
+                            img.logo(src="img/logo.svg" alt="")
+                            .Tblock
+                                h3 Вкусные и полезные обеды
+                                .content
+                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet aliquam ipsum. Aenean eget est eget mi viverra scelerisque dignissim quis dolor. In dolor turpis, tincidunt et eros sit amet, dictum iaculis velit. Sed nec mauris urna. Maecenas accumsan ornare mauris ac efficitur. Fusce maximus suscipit ante sit amet laoreet. Morbi sit amet tempus leo.
+                        .col-4.offset-1
+                            .row.justify-content-center
+                                .contacts.d-flex
+                                    img(src="img/phone-contact.svg" alt="")
+                                    div
+                                        a.d-block(href="tel:+38050123659845") +38(050)-123-65-98
+                                        a.d-block(href="mailto:dabba@gmail.com") dabba@gmail.com
+            .row
+                .col-12.callus
+                    .row
+                        .col-6.offset-3
+                            .row.justify-content-center
+                                h3 Lorem ipsum dolor sit amet consectetur
+                    .row
+                        .col-3.offset-1
+                            .row.justify-content-center
+                                .circle0 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        .col-4
+                            .row.justify-content-center
+                                .circle1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        .col-3
+                            .row.justify-content-center
+                                .circle2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            .row
+                .col-12.menu
+                    .row
+                        .col-5.offset-1
+                            .row.justify-content-center
+                                .menu_wrapper
+                                    .block
+                                        span Меню
+                        .col-5
+                            .row.justify-content-center
+                                .shop_wrapper
+                                    .block
+                                        span Магазин
+            .row
+                .col-12.shop
+                    .row.justify-content-center
+                        .shop_menu.shop_list Меню недели 23/12-27/12 
+                            button
+                                img(src="img/arrow.svg")
+                    .row.col-10.offset-1
+                        .col-4
+                            .block_tov
+                                div
+                                    span.block_tov_name Name
+                                    span.block_tov_price 80 uan
+                                .block_tov_body
+                                    img(src="img/tov.jpg")
+                                    .block_tov_body_menu
+                                        button.block_tov_body_menu_minus -
+                                        span.block_tov_body_menu_total 0
+                                        button.block_tov_body_menu_plus +
+                                    input(type="checkbox")
+                                .components
+                                    h4 Состав:
+                                    .menu
+                                        .component
+                                            span.name Нут
+                                            span.separator
+                                            span.desc 100г
+                                        .component
+                                            span.name Нут
+                                            span.separator
+                                            span.desc 100г
+                                        .component
+                                            span.name Нут
+                                            span.separator
+                                            span.desc 100г
+                                        .component
+                                            span.name Нут
+                                            span.separator
+                                            span.desc 100г
+                                        .component
+                                            span.name Нут
+                                            span.separator
+                                            span.desc 100г
+                        .col-4
+                            .block_tov
+                                div
+                                    span.block_tov_name Name
+                                    span.block_tov_price 80 uan
+                                .block_tov_body
+                                    img(src="img/tov.jpg")
+                                    .block_tov_body_menu
+                                        button.block_tov_body_menu_minus -
+                                        span.block_tov_body_menu_total 0
+                                        button.block_tov_body_menu_plus +
+                                    input(type="checkbox")
+                                .components
+                                    h4 Menu:
+                                    .d-flex.menu
+                                        .component
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                        .cost
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                        .col-4
+                            .block_tov
+                                div
+                                    span.block_tov_name Name
+                                    span.block_tov_price 80 uan
+                                .block_tov_body
+                                    img(src="img/tov.jpg")
+                                    .block_tov_body_menu
+                                        button.block_tov_body_menu_minus -
+                                        span.block_tov_body_menu_total 0
+                                        button.block_tov_body_menu_plus +
+                                    input(type="checkbox")
+                                .components
+                                    h4 Menu:
+                                    .d-flex.menu
+                                        .component
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                        .cost
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                        .col-4
+                            .block_tov
+                                div
+                                    span.block_tov_name Name
+                                    span.block_tov_price 80 uan
+                                .block_tov_body
+                                    img(src="img/tov.jpg")
+                                    .block_tov_body_menu
+                                        button.block_tov_body_menu_minus -
+                                        span.block_tov_body_menu_total 0
+                                        button.block_tov_body_menu_plus +
+                                    input(type="checkbox")
+                                .components
+                                    h4 Menu:
+                                    .d-flex.menu
+                                        .component
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                        .cost
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                        .col-4
+                            .block_tov
+                                div
+                                    span.block_tov_name Name
+                                    span.block_tov_price 80 uan
+                                .block_tov_body
+                                    img(src="img/tov.jpg")
+                                    .block_tov_body_menu
+                                        button.block_tov_body_menu_minus -
+                                        span.block_tov_body_menu_total 0
+                                        button.block_tov_body_menu_plus +
+                                    input(type="checkbox")
+                                .components
+                                    h4 Menu:
+                                    .d-flex.menu
+                                        .component
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                        .cost
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                        .col-4
+                            .block_tov
+                                div
+                                    span.block_tov_name Name
+                                    span.block_tov_price 80 uan
+                                .block_tov_body
+                                    img(src="img/tov.jpg")
+                                    .block_tov_body_menu
+                                        button.block_tov_body_menu_minus -
+                                        span.block_tov_body_menu_total 0
+                                        button.block_tov_body_menu_plus +
+                                    input(type="checkbox")
+                                .components
+                                    h4 Menu:
+                                    .d-flex.menu
+                                        div
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                            p component1
+                                        div
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                                            p 100
+                    .row.justify-content-center
+                        .col-4
+                            .shop_by
+                                button Оформить заказ
+                                p или продолжить покупки
+                                img(src="img/arrow.svg")
+            .row
+                .col-10.offset-1.shop
+                    .row.justify-content-center
+                        .col-4
+                            .shop_menu
+                                | Меню недели 23/12-27/12
+                    .row
+                        .col-4
+                            div
+                                span.block_tov_name Name
+                                span.block_tov_price 80 uan
+                            .block_tov_body
+                                img(src="img/tov.jpg")
+                                .block_tov_body_menu
+                                    button.block_tov_body_menu_minus -
+                                    span.block_tov_body_menu_total 0
+                                    button.block_tov_body_menu_plus +
+                                input(type="checkbox")
+                        .col-4
+                            div
+                                span.block_tov_name Name
+                                span.block_tov_price 80 uan
+                            .block_tov_body
+                                img(src="img/tov.jpg")
+                                .block_tov_body_menu
+                                    button.block_tov_body_menu_minus -
+                                    span.block_tov_body_menu_total 0
+                                    button.block_tov_body_menu_plus +
+                                input(type="checkbox")
+                        .col-4
+                            div
+                                span.block_tov_name Name
+                                span.block_tov_price 80 uan
+                            .block_tov_body
+                                img(src="img/tov.jpg")
+                                .block_tov_body_menu
+                                    button.block_tov_body_menu_minus -
+                                    span.block_tov_body_menu_total 0
+                                    button.block_tov_body_menu_plus +
+                                input(type="checkbox")
+                        .col-4
+                            div
+                                span.block_tov_name Name
+                                span.block_tov_price 80 uan
+                            .block_tov_body
+                                img(src="img/tov.jpg")
+                                .block_tov_body_menu
+                                    button.block_tov_body_menu_minus -
+                                    span.block_tov_body_menu_total 0
+                                    button.block_tov_body_menu_plus +
+                                input(type="checkbox")
+                        .col-4
+                            div
+                                span.block_tov_name Name
+                                span.block_tov_price 80 uan
+                            .block_tov_body
+                                img(src="img/tov.jpg")
+                                .block_tov_body_menu
+                                    button.block_tov_body_menu_minus -
+                                    span.block_tov_body_menu_total 0
+                                    button.block_tov_body_menu_plus +
+                                input(type="checkbox")
+                        .col-4
+                            div
+                                span.block_tov_name Name
+                                span.block_tov_price 80 uan
+                            .block_tov_body
+                                img(src="img/tov.jpg")
+                                .block_tov_body_menu
+                                    button.block_tov_body_menu_minus -
+                                    span.block_tov_body_menu_total 0
+                                    button.block_tov_body_menu_plus +
+                                input(type="checkbox")
+                    .row.justify-content-center
+                        .col-4
+                            .shop_by.shop_last
+                                button Оформить заказ
+            .row
+                .col-12.mail
+                    .row
+                        .col-1
+                        .col-5.menu
+                            .row.justify-content-center
+                                .your Ваш заказ
+                                fieldset
+                                    legend *Доставка 24.12
+                                    img(src="img/tov.jpg")
+                                    span.name Name
+                                    span.control
+                                        span.wrap_control
+                                            button.minus -
+                                            span.total 1
+                                            button.plus +
+                                        button.del X
+                                    span.total 80 uan
+                                fieldset
+                                    legend *Доставка 24.12
+                                    img(src="img/tov.jpg")
+                                    span.name Name
+                                    span.control
+                                        span.wrap_control
+                                            button.minus -
+                                            span.total 1
+                                            button.plus +
+                                        button.del X
+                                    span.total 80 uan
+                                .total Итог к опдате: 700 грн
+                        .col-5.send
+                            .row.justify-content-center
+                                form(action="")
+                                    .form-group
+                                        input#exampleInputEmail1.form-control(type="email" aria-describedby="emailHelp" placeholder="Имя*")
+                                    .form-row
+                                        .col
+                                            input.form-control(type="text" placeholder="Телефон*")
+                                        .col
+                                            input.form-control(type="text" placeholder="Email")
+                                    .form-group
+                                        select.form-control
+                                            option 1
+                                            option 2
+                                            option 3
+                                            option 4
+                                            option 5
+                                    .form-row
+                                        .col
+                                            input.form-control(type="text" placeholder="Дом*")
+                                        .col
+                                            input.form-control(type="text" placeholder="Квартира*")
+                                    .form-group
+                                        textarea#exampleFormControlTextarea1.form-control(rows="3" placeholder="Примечания")
+            .row
+                .col-12
+                    .row.justify-content-center.blog
+                        .col-4
+                            .blog_name
+                                | Меню недели 23/12-27/12
+                        .col-12.blog_list
+                            .item
+                                img(src="img/item_0.jpg")
+                                h3 Text text text
+                                p
+                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet aliquam ipsum. Aenean eget est eget mi viverra scelerisque dignissim quis dolor. In dolor turpis, tincidunt et eros sit amet, dictum iaculis velit. Sed nec mauris urna. Maecenas accumsan ornare mauris ac efficitur. Fusce maximus suscipit ante sit amet laoreet. Morbi sit amet tempus leo.
+                                p.center read more
+                                button
+                                    img(src="img/arrow.svg")
+                            .item
+                                img(src="img/item_1.jpg")
+                                h3 Text text text
+                                p
+                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet aliquam ipsum. Aenean eget est eget mi viverra scelerisque dignissim quis dolor. In dolor turpis, tincidunt et eros sit amet, dictum iaculis velit. Sed nec mauris urna. Maecenas accumsan ornare mauris ac efficitur. Fusce maximus suscipit ante sit amet laoreet. Morbi sit amet tempus leo.
+                                p.center read more
+                                button
+                                    img(src="img/arrow.svg")
+            .row
+                footer.col-12
+                    .row.justify-content-center.mask
+                        .col-4
+                            img(src="img/logo.svg")
+                            hr
+                            .contact
+                                a.d-block(href="tel:+38050123659845") +38(050)-123-65-98
+                                a.d-block(href="mailto:dabba@gmail.com") dabba@gmail.com
+                            .powered_by_WEEM
+                                span
+                                    a(href="https://weem.pro") Powered by WEEM
+                                    |  © 2019
