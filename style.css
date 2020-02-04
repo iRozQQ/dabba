@@ -18,6 +18,11 @@
     -webkit-transform: translateY(0%);
     transform: translateY(0%); } }
 
+
+.display_none {
+  display: none !important;
+}
+
 .block_tov {
   margin: 30px 0px;
   -webkit-box-shadow: 0px 3px 5px rgba(40, 22, 3, 0.3);
@@ -132,7 +137,7 @@
       border: none;
       background-color: rgba(255, 255, 255, 0.5);
       border-radius: 4px; }
-
+    
 header {
   background: url("img/header.jpg");
   background-size: 100% auto;
@@ -575,3 +580,5 @@ footer {
       font-weight: 600;
       font-size: 20px;
       line-height: 27px; }
+      
+      

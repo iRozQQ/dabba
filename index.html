@@ -11,10 +11,16 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
   <!--Логика для магазина и меню-->
   <script type="text/javascript" src="./scripts/menu_shop_logic.js"></script>
   <!--Якоря переходов-->
   <script type="text/javascript" src="./scripts/anchor_links.js"></script>
+  <!--menu-->
+  <script type="text/javascript" src="./scripts/order_menu.js"></script>
+  <!--shop -->
+  <script type="text/javascript" src="./scripts/order_shop.js"></script>
+
 
 
   <title>Dabba</title>
@@ -75,16 +81,16 @@
     </div>
     <div class="row">
       <div class="col-12 menu">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-5 offset-1">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" onclick="showMenu()">
               <div class="menu_wrapper">
                 <div class="block"><a href="#menu" class="nav_link">Меню</a></div>
               </div>
             </div>
           </div>
           <div class="col-5">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" onclick="showShop()">
               <div class="shop_wrapper">
                 <div class="block"><a href="#shop" class="nav_link">Магазин</a></div>
               </div>
@@ -95,408 +101,245 @@
     </div>
     <div class="row">
       <div class="col-12 shop">
-        <div class="row justify-content-center">
-          <section id='menu'>
-            <div class="shop_menu shop_list">Меню недели 23/12-27/12
-              <button><img src="img/arrow.svg"></button>
-            </div>
-          </section>
-        </div>
-        <div class="row col-10 offset-1">
-          <div class="col-4">
-            <div class="block_tov">
-              <div><span class="block_tov_name" id="block_tov_name_1">Name</span><span class="block_tov_price">80
-                  uan</span></div>
-              <div class="block_tov_body"><img src="img/tov.jpg">
-                <div class="block_tov_body_menu">
-                  <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_1()">-</button><span
-                    class="block_tov_body_menu_total" id="timesClicked_1">0</span>
-                  <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_1()">+</button>
-                </div>
-                <input type="checkbox" id="select_position">
-              </div>
-              <div class="components">
-                <h4>Состав:</h4>
-                <div class="menu">
-                  <div class="component"><span class="name">Нут</span><span class="separator"></span><span
-                      class="desc">100г</span></div>
-                  <div class="component"><span class="name">Нут</span><span class="separator"></span><span
-                      class="desc">100г</span></div>
-                  <div class="component"><span class="name">Нут</span><span class="separator"></span><span
-                      class="desc">100г</span></div>
-                  <div class="component"><span class="name">Нут</span><span class="separator"></span><span
-                      class="desc">100г</span></div>
-                  <div class="component"><span class="name">Нут</span><span class="separator"></span><span
-                      class="desc">100г</span></div>
-                </div>
-              </div>
-            </div>
+        <div id='menu' class="display_none row justify-content-center">
+          <div class="shop_menu shop_list">Меню недели 23/12-27/12
+            <button onclick="showMenu()"><img src="img/arrow_down.svg"></button>
           </div>
-          <div class="col-4">
-            <div class="block_tov">
-              <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-              <div class="block_tov_body"><img src="img/tov.jpg">
-                <div class="block_tov_body_menu">
-                  <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_2()">-</button><span
-                    class="block_tov_body_menu_total" id="timesClicked_2">0</span>
-                  <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_2()">+</button>
-                </div>
-                <input type="checkbox">
-              </div>
-              <div class="components">
-                <h4>Menu:</h4>
-                <div class="d-flex menu">
-                  <div class="component">
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
+          <div class="row col-10 offset-1" id="goods">
+            <!-- <div class="col-4">
+              <div class="block_tov">
+                <div><span class="block_tov_name" id="block_tov_name_1">Name</span><span class="block_tov_price">80
+                    uan</span></div>
+                <div class="block_tov_body"><img src="img/tov.jpg">
+                  <div class="block_tov_body_menu">
+                    <button class="block_tov_body_menu_minus" id="btn_menu_minus_1"
+                      onclick="javascript:btnClickLess_1()">-</button><span class="block_tov_body_menu_total"
+                      id="timesClicked_1">0</span>
+                    <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_1()">+</button>
                   </div>
-                  <div class="cost">
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
+                  <input type="checkbox" id="menu_chbox_1" onchange="funChBox_menu_1()">
+                </div>
+                <div class="components">
+                  <h4>Состав:</h4>
+                  <div class="menu">
+                    <div class="component"><span class="name">Нут</span><span class="separator"></span><span
+                        class="desc">100г</span></div>
+                    <div class="component"><span class="name">Нут</span><span class="separator"></span><span
+                        class="desc">100г</span></div>
+                    <div class="component"><span class="name">Нут</span><span class="separator"></span><span
+                        class="desc">100г</span></div>
+                    <div class="component"><span class="name">Нут</span><span class="separator"></span><span
+                        class="desc">100г</span></div>
+                    <div class="component"><span class="name">Нут</span><span class="separator"></span><span
+                        class="desc">100г</span></div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
-          <div class="col-4">
-            <div class="block_tov">
-              <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-              <div class="block_tov_body"><img src="img/tov.jpg">
-                <div class="block_tov_body_menu">
-                  <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_3()">-</button><span
-                    class="block_tov_body_menu_total" id="timesClicked_3">0</span>
-                  <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_3()">+</button>
-                </div>
-                <input type="checkbox">
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <div class="shop_by">
+                <button>Оформить заказ</button>
+                <p>или продолжить покупки</p><img src="img/arrow.svg">
               </div>
-              <div class="components">
-                <h4>Menu:</h4>
-                <div class="d-flex menu">
-                  <div class="component">
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                  </div>
-                  <div class="cost">
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="block_tov">
-              <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-              <div class="block_tov_body"><img src="img/tov.jpg">
-                <div class="block_tov_body_menu">
-                  <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_4()">-</button><span
-                    class="block_tov_body_menu_total" id="timesClicked_4">0</span>
-                  <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_4()">+</button>
-                </div>
-                <input type="checkbox">
-              </div>
-              <div class="components">
-                <h4>Menu:</h4>
-                <div class="d-flex menu">
-                  <div class="component">
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                  </div>
-                  <div class="cost">
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="block_tov">
-              <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-              <div class="block_tov_body"><img src="img/tov.jpg">
-                <div class="block_tov_body_menu">
-                  <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_5()">-</button><span
-                    class="block_tov_body_menu_total" id="timesClicked_5">0</span>
-                  <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_5()">+</button>
-                </div>
-                <input type="checkbox">
-              </div>
-              <div class="components">
-                <h4>Menu:</h4>
-                <div class="d-flex menu">
-                  <div class="component">
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                  </div>
-                  <div class="cost">
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="block_tov">
-              <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-              <div class="block_tov_body"><img src="img/tov.jpg">
-                <div class="block_tov_body_menu">
-                  <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_6()">-</button><span
-                    class="block_tov_body_menu_total" id="timesClicked_6">0</span>
-                  <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_6()">+</button>
-                </div>
-                <input type="checkbox">
-              </div>
-              <div class="components">
-                <h4>Menu:</h4>
-                <div class="d-flex menu">
-                  <div>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                    <p>component1</p>
-                  </div>
-                  <div>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                    <p>100</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-4">
-            <div class="shop_by">
-              <button>Оформить заказ</button>
-              <p>или продолжить покупки</p><img src="img/arrow.svg">
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-10 offset-1 shop">
-        <div class="row justify-content-center">
-          <div class="col-4">
-            <section id='shop'>
-              <div class="shop_menu">Заказывают вместо или вместе с обедами</div>
-            </section>
+      <div class="row">
+        <div class="col-10 offset-1 shop display_none" id="shop">
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <div class="shop_menu tab-pane container">Заказывают вместо или вместе с обедами <button
+                  onclick="showShop()"><img src="img/arrow_down.svg"></button></div>
+            </div>
+          </div>
+          <div class="row col-10 offset-1" id="goods_shop">
+
+            <div class="row justify-content-center">
+              <div class="col-4">
+                <div class="shop_by shop_last">
+                  <button>Оформить заказ</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-4">
-            <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-            <div class="block_tov_body"><img src="img/tov.jpg">
-              <div class="block_tov_body_menu">
-                <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_shop_1()">-</button><span
-                  class="block_tov_body_menu_total" id="timesClicked_shop_1">0</span>
-                <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_shop_1()">+</button>
+          <div class="col-12 mail">
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-5 menu">
+                <div class="row justify-content-center">
+                  <div class="your">Ваш заказ</div>
+                  <fieldset>
+                    <legend>*Доставка 24.12</legend><img src="img/tov.jpg"><span class="name">Name</span><span
+                      class="control"><span class="wrap_control">
+                        <button class="minus">-</button><span class="total">1</span>
+                        <button class="plus">+</button></span>
+                      <button class="del">X</button></span><span class="total">80 uan</span>
+                  </fieldset>
+                  <fieldset>
+                    <legend>*Доставка 24.12</legend><img src="img/tov.jpg"><span class="name">Name</span><span
+                      class="control"><span class="wrap_control">
+                        <button class="minus">-</button><span class="total">1</span>
+                        <button class="plus">+</button></span>
+                      <button class="del">X</button></span><span class="total">80 uan</span>
+                  </fieldset>
+                  <div class="total">Итог к опдате: 700 грн</div>
+                </div>
               </div>
-              <input type="checkbox">
-            </div>
-          </div>
-          <div class="col-4">
-            <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-            <div class="block_tov_body"><img src="img/tov.jpg">
-              <div class="block_tov_body_menu">
-                <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_shop_2()">-</button><span
-                  class="block_tov_body_menu_total" id="timesClicked_shop_2">0</span>
-                <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_shop_2()">+</button>
+              <div class="col-5 send">
+                <div class="row justify-content-center">
+                  <form action="">
+                    <div class="form-group">
+                      <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp"
+                        placeholder="Имя*">
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <input class="form-control" type="text" placeholder="Телефон*">
+                      </div>
+                      <div class="col">
+                        <input class="form-control" type="text" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <input class="form-control" type="text" placeholder="Дом*">
+                      </div>
+                      <div class="col">
+                        <input class="form-control" type="text" placeholder="Квартира*">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        placeholder="Примечания"></textarea>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <input type="checkbox">
-            </div>
-          </div>
-          <div class="col-4">
-            <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-            <div class="block_tov_body"><img src="img/tov.jpg">
-              <div class="block_tov_body_menu">
-                <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_shop_3()">-</button><span
-                  class="block_tov_body_menu_total" id="timesClicked_shop_3">0</span>
-                <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_shop_3()">+</button>
-              </div>
-              <input type="checkbox">
-            </div>
-          </div>
-          <div class="col-4">
-            <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-            <div class="block_tov_body"><img src="img/tov.jpg">
-              <div class="block_tov_body_menu">
-                <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_shop_4()">-</button><span
-                  class="block_tov_body_menu_total" id="timesClicked_shop_4">0</span>
-                <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_shop_4()">+</button>
-              </div>
-              <input type="checkbox">
-            </div>
-          </div>
-          <div class="col-4">
-            <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-            <div class="block_tov_body"><img src="img/tov.jpg">
-              <div class="block_tov_body_menu">
-                <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_shop_5()">-</button><span
-                  class="block_tov_body_menu_total" id="timesClicked_shop_5">0</span>
-                <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_shop_5()">+</button>
-              </div>
-              <input type="checkbox">
-            </div>
-          </div>
-          <div class="col-4">
-            <div><span class="block_tov_name">Name</span><span class="block_tov_price">80 uan</span></div>
-            <div class="block_tov_body"><img src="img/tov.jpg">
-              <div class="block_tov_body_menu">
-                <button class="block_tov_body_menu_minus" onclick="javascript:btnClickLess_shop_6()">-</button><span
-                  class="block_tov_body_menu_total" id="timesClicked_shop_6">0</span>
-                <button class="block_tov_body_menu_plus" onclick="javascript:btnClickMore_shop_6()">+</button>
-              </div>
-              <input type="checkbox">
             </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-4">
-            <div class="shop_by shop_last">
-              <button>Оформить заказ</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 mail">
         <div class="row">
-          <div class="col-1"></div>
-          <div class="col-5 menu">
-            <div class="row justify-content-center">
-              <div class="your">Ваш заказ</div>
-              <fieldset>
-                <legend>*Доставка 24.12</legend><img src="img/tov.jpg"><span class="name">Name</span><span
-                  class="control"><span class="wrap_control">
-                    <button class="minus">-</button><span class="total">1</span>
-                    <button class="plus">+</button></span>
-                  <button class="del">X</button></span><span class="total">80 uan</span>
-              </fieldset>
-              <fieldset>
-                <legend>*Доставка 24.12</legend><img src="img/tov.jpg"><span class="name">Name</span><span
-                  class="control"><span class="wrap_control">
-                    <button class="minus">-</button><span class="total">1</span>
-                    <button class="plus">+</button></span>
-                  <button class="del">X</button></span><span class="total">80 uan</span>
-              </fieldset>
-              <div class="total">Итог к опдате: 700 грн</div>
+          <div class="col-12">
+            <div class="row justify-content-center blog">
+              <div class="col-4">
+                <div class="blog_name">Dabba делится секретами</div>
+              </div>
+              <div class="col-12 blog_list">
+                <div class="item"><img src="img/item_0.jpg">
+                  <h3>Lorem ipsum blablabla</h3>
+                  <p onclick="closeSpoiler1(this)">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
+                    amet aliquam ipsum. Aenean eget
+                    est
+                    eget mi viverra scelerisque dignissim quis dolor. In dolor turpis, tincidunt et eros sit amet,
+                    dictum...
+                    <span id="spioler1" style="display:none" onclick="closeSpoiler1(this)">iaculis velit. Sed nec mauris
+                      urna. Maecenas accumsan ornare
+                      mauris ac efficitur. Fusce
+                      maximus
+                      suscipit
+                      ante sit amet laoreet. Morbi sit amet tempus leo.Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id ornare arcu
+                      odio ut sem nulla pharetra diam. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar
+                      pellentesque. Felis imperdiet proin fermentum leo. Eros donec ac odio tempor orci dapibus
+                      ultrices. In dictum non consectetur a erat. Risus quis varius quam quisque id diam. Mollis nunc
+                      sed id semper risus. Sit amet mauris commodo quis imperdiet massa tincidunt nunc. Elit eget
+                      gravida cum sociis natoque. Lacus laoreet non curabitur gravida arcu. Est velit egestas dui id
+                      ornare arcu. Penatibus et magnis dis parturient. Integer quis auctor elit sed vulputate mi.
+
+                      Cum sociis natoque penatibus et. Fermentum odio eu feugiat pretium nibh ipsum consequat. Eget est
+                      lorem ipsum dolor sit amet consectetur. Enim tortor at auctor urna nunc id. Enim nunc faucibus a
+                      pellentesque sit amet porttitor eget dolor. In egestas erat imperdiet sed euismod. Volutpat lacus
+                      laoreet non curabitur gravida arcu ac tortor. Quis viverra nibh cras pulvinar mattis. Nunc
+                      faucibus a pellentesque sit amet porttitor eget dolor morbi. Urna nunc id cursus metus aliquam
+                      eleifend mi in nulla. Sit amet nisl suscipit adipiscing bibendum. Sem viverra aliquet eget sit.
+                      Turpis egestas maecenas pharetra convallis posuere. Mauris vitae ultricies leo integer malesuada
+                      nunc. Risus feugiat in ante metus dictum.
+
+                      Ac tincidunt vitae semper quis. Cum sociis natoque penatibus et magnis dis parturient montes
+                      nascetur. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Odio facilisis
+                      mauris sit amet massa vitae tortor. Nibh sit amet commodo nulla facilisi nullam vehicula ipsum.
+                      Velit aliquet sagittis id consectetur. Volutpat blandit aliquam etiam erat velit scelerisque in.
+                      Pulvinar neque laoreet suspendisse interdum consectetur. Nullam ac tortor vitae purus. Nulla
+                      facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Adipiscing enim eu turpis egestas
+                      pretium aenean. Fusce id velit ut tortor pretium. Ultricies integer quis auctor elit sed vulputate
+                      mi sit amet.</span></p>
+                  <button id="but_spo1" onclick="openSpoiler1(this)">
+                    <p class="center">read more</p><img src="img/arrow.svg">
+                  </button>
+                </div>
+                <div class="item"><img src="img/item_1.jpg">
+                  <h3>Text text text</h3>
+                  <p onclick="closeSpoiler2(this)">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit
+                    amet aliquam ipsum. Aenean eget
+                    est
+                    eget mi viverra scelerisque dignissim quis dolor. In dolor turpis, tincidunt et eros sit amet,
+                    dictum...
+                    <span id="spioler2" style="display:none" onclick="closeSpoiler2(this)">iaculis velit. Sed nec mauris
+                      urna. Maecenas accumsan ornare
+                      mauris ac efficitur. Fusce
+                      maximus
+                      suscipit
+                      ante sit amet laoreet. Morbi sit amet tempus leo.Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id ornare arcu
+                      odio ut sem nulla pharetra diam. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar
+                      pellentesque. Felis imperdiet proin fermentum leo. Eros donec ac odio tempor orci dapibus
+                      ultrices. In dictum non consectetur a erat. Risus quis varius quam quisque id diam. Mollis nunc
+                      sed id semper risus. Sit amet mauris commodo quis imperdiet massa tincidunt nunc. Elit eget
+                      gravida cum sociis natoque. Lacus laoreet non curabitur gravida arcu. Est velit egestas dui id
+                      ornare arcu. Penatibus et magnis dis parturient. Integer quis auctor elit sed vulputate mi.
+
+                      Cum sociis natoque penatibus et. Fermentum odio eu feugiat pretium nibh ipsum consequat. Eget est
+                      lorem ipsum dolor sit amet consectetur. Enim tortor at auctor urna nunc id. Enim nunc faucibus a
+                      pellentesque sit amet porttitor eget dolor. In egestas erat imperdiet sed euismod. Volutpat lacus
+                      laoreet non curabitur gravida arcu ac tortor. Quis viverra nibh cras pulvinar mattis. Nunc
+                      faucibus a pellentesque sit amet porttitor eget dolor morbi. Urna nunc id cursus metus aliquam
+                      eleifend mi in nulla. Sit amet nisl suscipit adipiscing bibendum. Sem viverra aliquet eget sit.
+                      Turpis egestas maecenas pharetra convallis posuere. Mauris vitae ultricies leo integer malesuada
+                      nunc. Risus feugiat in ante metus dictum.
+
+                      Ac tincidunt vitae semper quis. Cum sociis natoque penatibus et magnis dis parturient montes
+                      nascetur. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Odio facilisis
+                      mauris sit amet massa vitae tortor. Nibh sit amet commodo nulla facilisi nullam vehicula ipsum.
+                      Velit aliquet sagittis id consectetur. Volutpat blandit aliquam etiam erat velit scelerisque in.
+                      Pulvinar neque laoreet suspendisse interdum consectetur. Nullam ac tortor vitae purus. Nulla
+                      facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Adipiscing enim eu turpis egestas
+                      pretium aenean. Fusce id velit ut tortor pretium. Ultricies integer quis auctor elit sed vulputate
+                      mi sit amet.</span></p>
+                  <button id="but_spo2" onclick="openSpoiler2(this)">
+                    <p class="center">read more</p><img src="img/arrow.svg">
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-5 send">
-            <div class="row justify-content-center">
-              <form action="">
-                <div class="form-group">
-                  <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp"
-                    placeholder="Имя*">
-                </div>
-                <div class="form-row">
-                  <div class="col">
-                    <input class="form-control" type="text" placeholder="Телефон*">
-                  </div>
-                  <div class="col">
-                    <input class="form-control" type="text" placeholder="Email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="form-row">
-                  <div class="col">
-                    <input class="form-control" type="text" placeholder="Дом*">
-                  </div>
-                  <div class="col">
-                    <input class="form-control" type="text" placeholder="Квартира*">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                    placeholder="Примечания"></textarea>
-                </div>
-              </form>
+        </div>
+        <div class="row">
+          <footer class="col-12">
+            <div class="row justify-content-center mask">
+              <div class="col-4"><img src="img/logo.svg">
+                <hr>
+                <div class="contact"><a class="d-block" href="tel:+38050123659845">+38(050)-123-65-98</a><a
+                    class="d-block" href="mailto:dabba@gmail.com">dabba@gmail.com</a></div>
+                <div class="powered_by_WEEM"><span><a href="https://weem.pro">Powered by WEEM</a> © 2019</span></div>
+              </div>
             </div>
-          </div>
+          </footer>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="row justify-content-center blog">
-          <div class="col-4">
-            <div class="blog_name">Меню недели 23/12-27/12</div>
-          </div>
-          <div class="col-12 blog_list">
-            <div class="item"><img src="img/item_0.jpg">
-              <h3>Text text text</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet aliquam ipsum. Aenean eget est
-                eget mi viverra scelerisque dignissim quis dolor. In dolor turpis, tincidunt et eros sit amet, dictum
-                iaculis velit. Sed nec mauris urna. Maecenas accumsan ornare mauris ac efficitur. Fusce maximus suscipit
-                ante sit amet laoreet. Morbi sit amet tempus leo.</p>
-              <p class="center">read more</p>
-              <button><img src="img/arrow.svg"></button>
-            </div>
-            <div class="item"><img src="img/item_1.jpg">
-              <h3>Text text text</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet aliquam ipsum. Aenean eget est
-                eget mi viverra scelerisque dignissim quis dolor. In dolor turpis, tincidunt et eros sit amet, dictum
-                iaculis velit. Sed nec mauris urna. Maecenas accumsan ornare mauris ac efficitur. Fusce maximus suscipit
-                ante sit amet laoreet. Morbi sit amet tempus leo.</p>
-              <p class="center">read more</p>
-              <button><img src="img/arrow.svg"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <footer class="col-12">
-        <div class="row justify-content-center mask">
-          <div class="col-4"><img src="img/logo.svg">
-            <hr>
-            <div class="contact"><a class="d-block" href="tel:+38050123659845">+38(050)-123-65-98</a><a class="d-block"
-                href="mailto:dabba@gmail.com">dabba@gmail.com</a></div>
-            <div class="powered_by_WEEM"><span><a href="https://weem.pro">Powered by WEEM</a> © 2019</span></div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
 </body>
 
 </html>
